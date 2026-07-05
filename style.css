@@ -47,7 +47,7 @@ header::after {
     content: "";
     display: block;
     position: absolute;
-    height: 10px;
+    height: 3px;
     width: 65%;
     background-color: var(--neon-purple);
     right: 0;
@@ -72,10 +72,11 @@ header::after {
     justify-content: center;
     cursor: pointer;
     border-bottom: 3px solid var(--neon-purple);
+    flex-wrap: wrap;
 }
 
 .nav-item {
-    margin: 0 3.5%;
+    margin: 0 3%;
 }
 
 .nav-link {
@@ -97,14 +98,14 @@ header::after {
 }
 
 .foto {
-    padding: 10px 10px 5px 10px;
+    padding: 4px 4px 0 4px;
     border-radius: 200px 200px 0 200px;
     background-color: var(--neon-purple);
     margin-right: 50px;
 }
 
 .foto img {
-    width: 360px;
+    width: 372px;
     height: auto;
     padding: 0;
     border-radius: 180px 180px 0 180px;
@@ -133,9 +134,10 @@ main {
 .left-column {
     padding: 20px 30px 20px 20px;
     width: 400px;
+    min-width: 300px;
     background: var(--bg-dark);
     box-sizing: border-box;
-    border-right: 10px solid var(--neon-purple);
+    border-right: 4px solid var(--neon-purple);
 }
 
 .left-column ul li {
@@ -170,7 +172,7 @@ main {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 1px;
 }
 
 .left-title.red::after, .right-title.red::after {
@@ -218,7 +220,6 @@ main {
 .projects-example {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     gap: 10px;
     margin: 0;
 }
@@ -231,18 +232,48 @@ main {
 
 .project {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row;
     margin-bottom: 20px;
+    gap: 10px;
+    flex-wrap: wrap;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    box-shadow: 
+        0 -4px 4px rgba(0, 0, 0, 0.1),
+        0 4px 4px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.project-description {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    max-width: 300px;
+    gap: 10px;
+    padding: 10px;
+}
+
+.project-description p {
+    line-height: 1;
+    margin: 0;
+}
+
+.project img {
+    width: 280px;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .project a {
     text-decoration: none;
     color: var(--bg-dark);
     margin: 10px;
-    font-size: 18px;
+    font-size: 20px;
+    text-decoration: underline;
 }
 .project a:hover {
-    text-decoration: underline;
     color: var(--neon-purple);
 }
 
@@ -285,4 +316,51 @@ footer a {
     text-decoration: underline;
     font-weight: bold;
     box-shadow: 0 0 20px 2px var(--neon-purple);
+}
+
+
+/*-------------- layout settings -------------*/
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .left-column {
+        width: 100%;
+        border-right: none;
+        border-bottom: 10px solid var(--neon-purple);
+    }
+
+    .right-column {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .foto-name {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .foto {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .foto img {
+        width: 220px;
+    }
+
+    .name {
+        font-size: 2rem;
+    }
+
+    .job {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+    }
+
+    header::after {
+        width: 100%;
+    }
 }
