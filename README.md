@@ -1,1 +1,1 @@
-https://TatsHats.github.io/rsschool-cv/
+https://tatshats.github.io/cv/
